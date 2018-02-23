@@ -106,14 +106,13 @@ $(document).ready(function () {
 	}, 900);
 
 
-	if (document.cookie && getCookie('start-timer').length) {
+	if (!document.cookie && !getCookie('start-timer').length) {
 		alert(getCookie('start-timer'));
 		timer(hours, minutes, seconds);
 		var now = Date.now();
 		setCookie('start-timer', now, {
 			expires: 1
 		});
-		// document.cookie = 'start-timer=' + now + ";";
 	} 
 
 });
