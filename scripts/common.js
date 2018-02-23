@@ -99,6 +99,10 @@ function deleteCookie(name) {
 	});
 }
 
+var hours = "0";
+var minutes = "3";
+var seconds = "1";
+
 $(document).ready(function () {
 
 	setTimeout(function () {
