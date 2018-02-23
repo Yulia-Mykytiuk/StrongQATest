@@ -1,0 +1,252 @@
+/* base styles*/
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  width: 100%;
+  min-width: 320px;
+  font-family: 'Poppins',arial,sans-serif;
+  background: #fff;
+  color: #3d3d3d;
+  position: relative;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.mbox {
+  max-width: 1226px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  padding: 0 15px;
+}
+
+.mbox:after {
+  content: "";
+  clear: both;
+  font-size: 1px;
+  line-height: 1px;
+  height: 0;
+  overflow: hidden;
+  display: block;
+}
+
+h1, h2, h3, h4, h5, h6, p, ol, li {
+  padding: 0;
+  margin: 0;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*fonts*/
+@font-face {
+  font-family: "Poppins";
+  src: url("../fonts/Poppins-SemiBold.eot");
+  src: url("../fonts/Poppins-SemiBold.eot?#iefix") format("embedded-opentype"), url("../fonts/Poppins-SemiBold.woff") format("woff"), url("../fonts/Poppins-SemiBold.ttf") format("truetype"), url("../fonts/Poppins-SemiBold.svg#Poppins") format("svg");
+  font-weight: 600;
+  font-style: normal;
+}
+
+/*/fonts*/
+/* /base styles*/
+
+.el-button {
+  min-width: 282px;
+  border-radius: 2px;
+  background-color: #85c242;
+  border: 1px solid #85c242;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.2);
+  padding: 14px 24px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+  display: inline-block;
+  text-transform: uppercase;
+  transition: .3s ease-in-out;
+}
+
+.el-button span:first-child {
+  width: calc(100% - 41px);
+  display: inline-block;
+}
+
+.el-button svg {
+  fill: #fff;
+  vertical-align: top;
+}
+
+.el-button:hover {
+  color: #85c242;
+  background-color: transparent;
+}
+
+.el-button:hover svg {
+  fill: #85c242;
+}
+
+.timer {
+  position: relative;
+  background-image: linear-gradient(156deg, #0158ca, #094d9b);
+  height: 100vh;
+  padding: 30px 0;
+}
+
+.timer:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 81px;
+  background: #fff;
+  max-height: 15vh;
+}
+
+.timer-wrap {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  -ms-flex-align: end;
+      align-items: flex-end;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 1.3px;
+  color: #fff;
+}
+
+.timer-wrap h1, .timer-wrap h2, .timer-wrap h3 {
+  font-size: 32px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.timer-wrap a {
+  margin-top: 15px;
+}
+
+.timer-content {
+  width: 100%;
+  max-width: 480px;
+  padding-bottom: 20px;
+  opacity: 0;
+  transition: .4s ease-in-out;
+}
+
+.timer-content.active {
+  opacity: 1;
+}
+
+.timer-pic {
+  width: 100%;
+  max-width: calc(100% - 480px);
+  height: 90vh;
+  text-align: right;
+}
+
+.timer-pic img {
+  -o-object-fit: contain;
+     object-fit: contain;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.timer .time {
+  padding-bottom: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.timer .time span {
+  text-align: center;
+  width: 96px;
+  height: 94px;
+  border-radius: 2px;
+  background-color: rgba(255, 255, 255, 0.1);
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+  font-size: 32px;
+  font-weight: 600;
+  color: #ffffff;
+  border-bottom: 2px solid #fff;
+  margin-bottom: 10px;
+}
+
+.timer .time span.disabled {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.timer .time-item {
+  margin-right: 20px;
+}
+
+/*adaptive styles*/
+@media screen and (max-width: 1024px) {
+  .timer {
+    height: auto;
+    max-height: auto;
+  }
+  .timer-pic {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .timer {
+    height: auto;
+    max-height: auto;
+  }
+  .timer:before {
+    display: none;
+  }
+  .timer-wrap {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    -ms-flex-pack: center;
+        justify-content: center;
+    -ms-flex-align: center;
+        align-items: center;
+    font-size: 18px;
+  }
+  .timer-wrap h1, .timer-wrap h2, .timer-wrap h3 {
+    font-size: 30px;
+  }
+  .timer-content {
+    width: 100%;
+  }
+  .timer-pic {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+    height: auto;
+  }
+  .timer .time span {
+    width: 76px;
+    height: 74px;
+  }
+  .timer .time-item {
+    margin-right: 10px;
+  }
+}
+/*/adaptive styles*/

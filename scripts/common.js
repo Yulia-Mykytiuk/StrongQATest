@@ -35,10 +35,7 @@ function timer(hours, minutes, seconds) {
 				time.minutes--;
 				time.seconds = 59;
 			} else if (time.minutes === 0) {
-				if (time.hours === 0 && time.minutes === 0 && time.seconds === 0) {
-					clearInterval(interval);
-					$('.el-button').remove();
-				} else if (time.hours > 0) {
+				if (time.hours > 0) {
 					time.hours--;
 					time.minutes = 59;
 				}
@@ -103,65 +100,24 @@ function deleteCookie(name) {
 }
 
 $(document).ready(function () {
-	// alert( document.cookie, getCookie('hours'), getCookie('minutes') );
+
 	setTimeout(function () {
 		$('.timer-content').addClass('active');
 	}, 900);
 
-	var cur_hours = $('.hours span').html();
-	var cur_minutes = $('.min span').html();
-	var cur_seconds = $('.sec span').html();
 
-	if (!cur_hours || cur_hours == NaN || cur_hours == undefined || cur_hours == "") {
-		cur_hours = 0;
-	}
+	if (document.cookie && getCookie('start-timer').length) {
+		alert(getCookie('start-timer'));
+		timer(hours, minutes, seconds);
+		var now = Date.now();
+		setCookie('start-timer', now, {
+			expires: 1
+		});
+		// document.cookie = 'start-timer=' + now + ";";
+	} 
 
-	if (!cur_minutes || cur_minutes == NaN || cur_minutes == undefined || cur_minutes == "") {
-		cur_minutes = 0;
-	}
-
-	if (!cur_seconds || cur_seconds == NaN || cur_seconds == undefined || cur_seconds == "") {
-		cur_seconds = 0;
-	}
-
-	if (document.cookie && getCookie('hours').length || getCookie('minutes').length || getCookie('seconds').length) {
-		timer(parseInt(getCookie('hours')), parseInt(getCookie('minutes')), parseInt(getCookie('seconds')));
-	} else {
-		timer(cur_hours, cur_minutes, cur_seconds);
-	}
-
-	windowCloseEvent();
 });
-
-function windowCloseEvent() {
-	window.onbeforeunload = function (event) {
-		var cur_hours = $('.hours span').html();
-		var cur_minutes = $('.min span').html();
-		var cur_seconds = $('.sec span').html();
-
-		if (!cur_hours || cur_hours == NaN || cur_hours == undefined || cur_hours == "") {
-			cur_hours = 0;
-		}
-
-		if (!cur_minutes || cur_minutes == NaN || cur_minutes == undefined || cur_minutes == "") {
-			cur_minutes = 0;
-		}
-
-		if (!cur_seconds || cur_seconds == NaN || cur_seconds == undefined || cur_seconds == "") {
-			cur_seconds = 0;
-		}
-
-		deleteCookie('hours');
-		deleteCookie('minutes');
-		deleteCookie('seconds');
-
-		document.cookie = "hours=" + cur_hours + ";";
-		document.cookie = "minutes=" + cur_minutes + ";";
-		document.cookie = "seconds=" + cur_seconds + ";";
-	};
-}
 
 $(window).load(function () {});
 
 $(window).resize(function () {});
-//# sourceMappingURL=develop_1.js.map
