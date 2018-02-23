@@ -106,8 +106,9 @@ $(document).ready(function () {
 	}, 900);
 
 
+	alert(document.cookie);
+	
 	if (!document.cookie && !getCookie('start-timer').length) {
-		alert(getCookie('start-timer'));
 		timer(hours, minutes, seconds);
 		var now = Date.now();
 		setCookie('start-timer', now, {
