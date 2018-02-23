@@ -107,14 +107,28 @@ $(document).ready(function () {
 
 
 	alert(document.cookie);
-	
+
+	var start_time = Date.now();
+
 	if (!document.cookie && !getCookie('start-timer').length) {
 		timer(hours, minutes, seconds);
 		var now = Date.now();
 		setCookie('start-timer', now, {
 			expires: 1
 		});
-	} 
+		var end_time = now + (hours*3600 + minutes*60 + seconds);
+		setCookie('end-timer', end_time, {
+			expires: 1
+		});
+	} else if (start_time >= getCookie('end-timer')) {
+		timer('0', '0', '0');
+	} else if (start_time < getCookie('end-timer')) {
+		var left = getCookie('end-timer') - start_time;
+		var hours = Math.ceil(left / 3600);
+		var minutes = Math.ceil((left - hours*3600) / 60);
+		var seconds = Math.ceil(left - ((left - hours*3600) / 60));
+		timer(hours, minutes, seconds);
+	}
 
 });
 
