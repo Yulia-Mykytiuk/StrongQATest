@@ -9,14 +9,14 @@ function timer(hours, minutes, seconds) {
 
 	var interval = setInterval(function () {
 
-		if (time.hours.toString().length < 2) {
-			time.hours = '0' + time.hours;
+		if (time["hours"].toString().length < 2) {
+			time["hours"] = '0' + time.hours;
 		}
-		if (time.minutes.toString().length < 2) {
-			time.minutes = '0' + time.minutes;
+		if (time["minutes"].toString().length < 2) {
+			time["minutes"] = '0' + time.minutes;
 		}
-		if (time.seconds.toString().length < 2) {
-			time.seconds = '0' + time.seconds;
+		if (time["seconds"].toString().length < 2) {
+			time["seconds"] = '0' + time.seconds;
 		}
 
 		$('.hours span').html(time.hours);
