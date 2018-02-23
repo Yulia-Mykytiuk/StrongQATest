@@ -2,8 +2,12 @@ node_modules/*
 node_modules
 .sass-cache
 .sass-cache/
+src/*
+src
 .idea
 .idea/
 .vscode
 .vscode/
+.tmp/*
+.tmp
 bower_components
