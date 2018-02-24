@@ -117,13 +117,9 @@ $(document).ready(function () {
 	if (!document.cookie && !getCookie('start-timer').length) {
 		timer(global_hours, global_minutes, global_seconds);
 		var now = Date.now();
-		setCookie('start-timer', now, {
-			expires: 1
-		});
+		document.cookie = 'start-timer' + now + ';';
 		var end_time = now + (global_hours*3600 + global_minutes*60 + global_seconds);
-		setCookie('end-timer', end_time, {
-			expires: 1
-		});
+		document.cookie = 'end-timer' + end_time + ';';
 	} else if (start_time >= getCookie('end-timer')) {
 		timer('0', '0', '0');
 	} else if (start_time < getCookie('end-timer')) {
