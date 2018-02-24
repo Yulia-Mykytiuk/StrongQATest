@@ -1,8 +1,8 @@
 'use strict';
 
-var hours = "0";
-var minutes = "3";
-var seconds = "1";
+var global_hours = "0";
+var global_minutes = "3";
+var global_seconds = "1";
 
 function timer(hours, minutes, seconds) {
 	var time = {
@@ -115,12 +115,12 @@ $(document).ready(function () {
 	var start_time = Date.now();
 
 	if (!document.cookie && !getCookie('start-timer').length) {
-		timer(hours, minutes, seconds);
+		timer(global_hours, global_minutes, global_seconds);
 		var now = Date.now();
 		setCookie('start-timer', now, {
 			expires: 1
 		});
-		var end_time = now + (hours*3600 + minutes*60 + seconds);
+		var end_time = now + (global_hours*3600 + global_minutes*60 + global_seconds);
 		setCookie('end-timer', end_time, {
 			expires: 1
 		});
