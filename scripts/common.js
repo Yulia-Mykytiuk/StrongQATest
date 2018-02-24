@@ -120,10 +120,10 @@ $(document).ready(function () {
 		document.cookie = 'start-timer=' + now + ';';
 		var end_time = parseInt(now) + (global_hours*3600000 + global_minutes*60000 + global_seconds*1000);
 		document.cookie = 'end-timer=' + end_time + ';';
-	} else if (start_time <= parseInt(getCookie('end-timer'))) {
+	} else if (start_time >= parseInt(getCookie('end-timer'))) {
 		timer('0', '0', '0');
-	} else if (start_time > parseInt(getCookie('end-timer'))) {
-		var left = parseInt(start_time) - parseInt(getCookie('end-timer'));
+	} else if (start_time < parseInt(getCookie('end-timer'))) {
+		var left = parseInt(getCookie('end-timer')) - parseInt(start_time);
 		var hours = Math.floor(left / 3600000);
 		var minutes = Math.floor((left - hours*3600000) / 60000);
 		var seconds = Math.floor(left - hours*3600000 - minutes*60000);
