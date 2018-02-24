@@ -1,8 +1,8 @@
 'use strict';
 
-var global_hours = "0";
-var global_minutes = "3";
-var global_seconds = "1";
+var global_hours = 0;
+var global_minutes = 3;
+var global_seconds = 1;
 
 function timer(hours, minutes, seconds) {
 	var time = {
@@ -118,7 +118,7 @@ $(document).ready(function () {
 		timer(global_hours, global_minutes, global_seconds);
 		var now = Date.now();
 		document.cookie = 'start-timer=' + now + ';';
-		var end_time = now + (global_hours*3600 + global_minutes*60 + global_seconds);
+		var end_time = parseInt(now) + (global_hours*3600 + global_minutes*60 + global_seconds);
 		document.cookie = 'end-timer=' + end_time + ';';
 	} else if (start_time >= parseInt(getCookie('end-timer'))) {
 		timer('0', '0', '0');
