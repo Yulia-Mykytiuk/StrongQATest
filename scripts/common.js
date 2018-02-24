@@ -130,6 +130,16 @@ $(document).ready(function () {
 		timer(hours, minutes, seconds);
 	}
 
+	$('.timer-pic').click(function() {
+	    if (!$(this).hasClass('clicked')) {
+	      $(this).addClass('clicked');
+	      
+	      deleteCookie('start-timer');
+	      deleteCookie('end-timer');
+	    }
+	    location.reload();
+	});
+
 });
 
 $(window).load(function () {});
