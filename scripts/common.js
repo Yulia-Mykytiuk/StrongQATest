@@ -1,5 +1,9 @@
 'use strict';
 
+var hours = "0";
+var minutes = "3";
+var seconds = "1";
+
 function timer(hours, minutes, seconds) {
 	var time = {
 		"hours": hours,
@@ -98,10 +102,6 @@ function deleteCookie(name) {
 		expires: -1
 	});
 }
-
-var hours = "0";
-var minutes = "3";
-var seconds = "1";
 
 $(document).ready(function () {
 
