@@ -114,20 +114,29 @@ $(document).ready(function () {
 
 	var start_time = Date.now();
 
-	if (!document.cookie && !getCookie('start-timer').length) {
+	if (!document.cookie) {
+
 		timer(global_hours, global_minutes, global_seconds);
+
 		var now = Date.now();
-		document.cookie = 'start-timer=' + now + ';';
+		document.cookie = 'start-timer=' + now + ';expires=' + now + 3600000;
+
 		var end_time = parseInt(now) + (global_hours*3600000 + global_minutes*60000 + global_seconds*1000);
-		document.cookie = 'end-timer=' + end_time + ';';
+		document.cookie = 'end-timer=' + end_time + ';expires=' + now + 3600000;
+
 	} else if (start_time >= parseInt(getCookie('end-timer'))) {
+
 		timer('0', '0', '0');
+
 	} else if (start_time < parseInt(getCookie('end-timer'))) {
+
 		var left = parseInt(getCookie('end-timer')) - parseInt(start_time);
 		var hours = Math.floor(left / 3600000);
 		var minutes = Math.floor((left - hours*3600000) / 60000);
 		var seconds = Math.floor((left - hours*3600000 - minutes*60000) / 1000);
+
 		timer(hours, minutes, seconds);
+
 	}
 
 	$('.timer-pic').click(function() {
