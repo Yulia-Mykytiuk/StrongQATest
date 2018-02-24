@@ -124,9 +124,9 @@ $(document).ready(function () {
 		timer('0', '0', '0');
 	} else if (start_time > parseInt(getCookie('end-timer'))) {
 		var left = parseInt(start_time) - parseInt(getCookie('end-timer'));
-		var hours = Math.ceil(left / 3600);
-		var minutes = Math.ceil((left - hours*3600) / 60);
-		var seconds = Math.ceil(left - ((left - hours*3600) / 60));
+		var hours = Math.floor(left / 3600);
+		var minutes = Math.floor((left - hours*3600) / 60);
+		var seconds = Math.floor(left - ((left - hours*3600) / 60));
 		timer(hours, minutes, seconds);
 	}
 
