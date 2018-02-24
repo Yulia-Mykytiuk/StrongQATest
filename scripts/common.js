@@ -126,7 +126,7 @@ $(document).ready(function () {
 		var left = parseInt(getCookie('end-timer')) - parseInt(start_time);
 		var hours = Math.floor(left / 3600000);
 		var minutes = Math.floor((left - hours*3600000) / 60000);
-		var seconds = Math.floor(left - hours*3600000 - minutes*60000);
+		var seconds = Math.floor((left - hours*3600000 - minutes*60000) / 1000);
 		timer(hours, minutes, seconds);
 	}
 
