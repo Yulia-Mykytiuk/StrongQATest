@@ -117,6 +117,7 @@ $(document).ready(function () {
 	if (!document.cookie) {
 
 		var date = new Date();
+		date.setHours(date.getHours() + 1);
 
 		timer(global_hours, global_minutes, global_seconds);
 
