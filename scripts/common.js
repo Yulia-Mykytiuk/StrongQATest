@@ -109,9 +109,6 @@ $(document).ready(function () {
 		$('.timer-content').addClass('active');
 	}, 900);
 
-
-	alert(document.cookie);
-
 	var start_time = Date.now();
 
 	if (!document.cookie) {
@@ -141,16 +138,6 @@ $(document).ready(function () {
 		timer(hours, minutes, seconds);
 
 	}
-
-	$('.timer-pic').click(function() {
-	    if (!$(this).hasClass('clicked')) {
-	      $(this).addClass('clicked');
-	      
-	      deleteCookie('start-timer');
-	      deleteCookie('end-timer');
-	    }
-	    location.reload();
-	});
 
 });
 
