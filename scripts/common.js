@@ -119,10 +119,10 @@ $(document).ready(function () {
 		timer(global_hours, global_minutes, global_seconds);
 
 		var now = Date.now();
-		document.cookie = 'start-timer=' + now + ';expires=' + now + 3600000;
+		document.cookie = 'start-timer=' + now + '; path=/; expires=' + (now + 3600000);
 
 		var end_time = parseInt(now) + (global_hours*3600000 + global_minutes*60000 + global_seconds*1000);
-		document.cookie = 'end-timer=' + end_time + ';expires=' + now + 3600000;
+		document.cookie = 'end-timer=' + end_time + '; path=/; expires=' + (now + 3600000);
 
 	} else if (start_time >= parseInt(getCookie('end-timer'))) {
 
