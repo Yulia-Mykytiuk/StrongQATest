@@ -123,10 +123,10 @@ $(document).ready(function () {
 	} else if (start_time <= parseInt(getCookie('end-timer'))) {
 		timer('0', '0', '0');
 	} else if (start_time > parseInt(getCookie('end-timer'))) {
-		var left = parseInt(start_time) - parseInt(getCookie('end-timer'));
+		var left = parseInt(start_time) / 1000 - parseInt(getCookie('end-timer')) / 1000;
 		var hours = Math.floor(left / 3600);
 		var minutes = Math.floor((left - hours*3600) / 60);
-		var seconds = Math.floor(left - ((left - hours*3600) / 60));
+		var seconds = Math.floor(left - hours*3600 - minutes*60);
 		timer(hours, minutes, seconds);
 	}
 
